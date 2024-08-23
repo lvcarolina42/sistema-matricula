@@ -8,10 +8,8 @@ class StudentModel extends UserModel {
     required this.id,
     required super.cpf,
     required super.name,
-    required super.email,
-    required super.address,
+    required super.type,
     required super.password,
     required this.registration,
-    required super.phoneNumber,
   });
 }

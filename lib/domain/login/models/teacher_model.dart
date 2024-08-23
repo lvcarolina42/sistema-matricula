@@ -10,10 +10,8 @@ class TeacherModel extends UserModel {
     required super.cpf,
     required this.wage,
     required super.name,
-    required super.email,
-    required super.address,
+    required super.type,
     required this.workload,
     required super.password,
-    required super.phoneNumber,
   });
 }

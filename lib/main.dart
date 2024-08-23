@@ -1,24 +1,46 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sistema_matricula/backend/db.dart';
+import 'package:sistema_matricula/di/dependency_injection.dart';
 import 'package:sistema_matricula/presentation/login/login_page.dart';
+import 'package:sistema_matricula/shared/app_routes/paths.dart';
+import 'package:sistema_matricula/shared/app_routes/routes.dart';
+import 'package:window_size/window_size.dart';
+import 'package:sqflite_common/sqlite_api.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
-void main() {  
-  runApp(const MyApp());
-}
+void main() async {  
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  DependencyInjector().setup();
+
+  final db = Db();
   
+  await db.init();
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+  runApp(
+    MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routeInformationParser: GetInformationParser(),
+      routerDelegate: GetDelegate(
+        preventDuplicateHandlingMode: PreventDuplicateHandlingMode.DoNothing,
       ),
-      home: const LoginPage(),
-    );
-  }
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: const TextScaler.linear(1.0),
+          ),
+          child: GetMaterialApp(
+            initialRoute: Paths.login,
+            getPages: Routes.pages,
+            debugShowCheckedModeBanner: false,
+            builder: (context, child) => child!,
+          ),
+        );
+      },
+    ),
+  );
 }

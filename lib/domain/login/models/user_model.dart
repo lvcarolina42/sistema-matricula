@@ -1,19 +1,34 @@
 import 'package:sistema_matricula/domain/login/models/address_model.dart';
 
-abstract class UserModel {
+enum UserType { 
+  student("Aluno"),
+  teacher("Professor"),
+  secretary("Secretário");
+
+  const UserType(this.name);
+
+  final String name;
+}
+
+class UserModel {
   final String cpf;
   final String name;
-  final String email;
+  final UserType type;
   final String password;
-  final String phoneNumber;
-  final AddressModel address;
 
   UserModel({
     required this.cpf,
+    required this.type,
     required this.name,
-    required this.email,
-    required this.address,
     required this.password,
-    required this.phoneNumber,
   });
+
+  factory UserModel.fromMap(Map<String, Object?> map, UserType type) {
+    return UserModel(
+      type: type,
+      cpf: map['cpf'] as String,
+      name: map['name'] as String,
+      password: map['password'] as String,
+    );
+  }
 }
