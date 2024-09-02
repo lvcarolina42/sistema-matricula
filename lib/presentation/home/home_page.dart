@@ -3,6 +3,10 @@ import 'package:get/get.dart';
 import 'package:sistema_matricula/domain/login/models/user_model.dart';
 import 'package:sistema_matricula/presentation/home/controller/home_controller.dart';
 import 'package:sistema_matricula/presentation/manage_courses/menage_courses_page.dart';
+import 'package:sistema_matricula/presentation/manage_students/manage_students_page.dart';
+import 'package:sistema_matricula/presentation/manage_subject/menage_subject_page.dart';
+import 'package:sistema_matricula/presentation/manage_teachers/manage_teachers_page.dart';
+import 'package:sistema_matricula/presentation/registration/registration_page.dart';
 import 'package:sistema_matricula/shared/app_routes/paths.dart';
 
 class HomePage extends StatefulWidget {
@@ -77,7 +81,7 @@ class _HomePageState extends State<HomePage> {
       case UserType.student:
         return 4;
       case UserType.secretary:
-        return 5;
+        return 6;
       case UserType.teacher:
         return 1;
       default:
@@ -96,9 +100,10 @@ class _HomePageState extends State<HomePage> {
         ];
       case UserType.secretary:
         return [
-          const Tab(text: "Gerenciar Cursos"),
-          const Tab(text: "Gerenciar Disciplinas"),
-          const Tab(text: "Gerenciar Alunos"),
+          const Tab(text: "Cursos"),
+          const Tab(text: "Disciplinas"),
+          const Tab(text: "Professores"),
+          const Tab(text: "Alunos"),
           const Tab(text: "Relatórios"),
           const Tab(text: "Matrículas"),
         ];
@@ -115,7 +120,7 @@ class _HomePageState extends State<HomePage> {
     switch (userType) {
       case UserType.student:
         return [
-          _buildMenuOption("Matricular em Disciplinas", "Paths.enrollments"),
+          const RegistrationPage(),
           _buildMenuOption("Cancelar Matrícula", "Paths.cancelEnrollment"),
           _buildMenuOption("Ver Minhas Disciplinas", "Paths.myCourses"),
           _buildMenuOption("Gerar Boleto de Pagamento", "Paths.generateInvoice"),
@@ -123,10 +128,11 @@ class _HomePageState extends State<HomePage> {
       case UserType.secretary:
         return [
           ManageCoursesPage(),
-          _buildMenuOption("Gerenciar Disciplinas", "Paths.manageCourses"),
-          _buildMenuOption("Gerenciar Alunos", "Paths.manageStudents"),
-          _buildMenuOption("Gerar Relatórios", "Paths.generateReports"),
-          _buildMenuOption("Visualizar Matrículas", "Paths.viewEnrollments"),
+          const ManageSubjectPage(),
+          const ManageTeachersPage(),
+          const ManageStudentsPage(),
+          _buildMenuOption("Relatórios", "Paths.generateReports"),
+          _buildMenuOption("Matrículas", "Paths.viewEnrollments"),
         ];
       case UserType.teacher:
         return [

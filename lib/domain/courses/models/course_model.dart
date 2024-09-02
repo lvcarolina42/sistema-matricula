@@ -1,10 +1,12 @@
 class CourseModel {
+  final int id;
   final int code;
   final String name;
   final int credits;
   final int periods;
 
   CourseModel({
+    this.id = -1,
     required this.code,
     required this.name,
     required this.credits,
@@ -13,6 +15,7 @@ class CourseModel {
 
   factory CourseModel.fromMap(Map<String, dynamic> map) {
     return CourseModel(
+      id: map['id'],
       code: map['code'],
       name: map['name'],
       credits: map['credits'],

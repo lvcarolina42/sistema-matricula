@@ -27,7 +27,6 @@ class ManageCoursesPage extends StatelessWidget {
                         DataColumn(label: Text('Nome')),
                         DataColumn(label: Text('Créditos')),
                         DataColumn(label: Text('Períodos')),
-                        DataColumn(label: Text('Ações')),
                       ],
                       rows: controller.courses.map((course) {
                         return DataRow(
@@ -36,20 +35,6 @@ class ManageCoursesPage extends StatelessWidget {
                             DataCell(Text(course.name)),
                             DataCell(Text(course.credits.toString())),
                             DataCell(Text(course.periods.toString())),
-                            DataCell(
-                              Row(
-                                children: [
-                                  IconButton(
-                                    icon: const Icon(Icons.edit, color: Colors.blue),
-                                    onPressed: () => {}
-                                  ),
-                                  IconButton(
-                                    icon: const Icon(Icons.delete, color: Colors.red),
-                                    onPressed: () => {},
-                                  ),
-                                ],
-                              )
-                            )
                           ]
                         );
                       }).toList(),

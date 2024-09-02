@@ -10,8 +10,13 @@ class CoursesDatasource {
     return courses;
   }
 
+  Future<List<Map<String, Object?>>> getCourse(int id) async {
+    final courses = await _database.query("course", where: "id = ?", whereArgs: [id]);
+
+    return courses;
+  }
+
   Future<int> registerCourse(CourseModel course) async {
-    final mapCourse = course.toMap();
     return await _database.insert("course", course.toMap());
   }
 

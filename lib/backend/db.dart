@@ -51,14 +51,16 @@ class Db {
           cpf TEXT,
           name TEXT,
           password TEXT,
-          registration TEXT
+          period INTEGER,
+          courseId INTEGER
       );
 
       CREATE TABLE IF NOT EXISTS teacher (
           id INTEGER PRIMARY KEY,
           cpf TEXT,
           name TEXT,
-          password TEXT
+          password TEXT,
+          subjectId INTEGER
       );
 
       CREATE TABLE IF NOT EXISTS secretary (
@@ -76,6 +78,16 @@ class Db {
           periods INTEGER
       );
 
+      CREATE TABLE IF NOT EXISTS subject (
+          id INTEGER PRIMARY KEY,
+          code INTEGER,
+          name TEXT,
+          credits INTEGER,
+          periods INTEGER,
+          courseId INTEGER,
+          isOptional BOOLEAN,
+          price DOUBLE
+      );
       ''');
     } catch (e) {
       print("Error creating tables: $e");

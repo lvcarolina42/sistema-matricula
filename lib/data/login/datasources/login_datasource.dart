@@ -1,11 +1,12 @@
 import 'package:sistema_matricula/backend/db.dart';
+import 'package:sistema_matricula/domain/login/models/student_model.dart';
 import 'package:sistema_matricula/domain/login/models/user_model.dart';
 
 class LoginDatasource {
   final _database = Db().database!;
   Future<bool> register(UserModel user) async {
     if(user.type == UserType.student) {
-      await _database.insert("student", <String, Object?>{'cpf': user.cpf, 'password': user.password, 'name': user.name, 'registration': "sadszd"});
+      await _database.insert("student", (user as StudentModel).toMap());
     }
 
     if(user.type == UserType.teacher) {

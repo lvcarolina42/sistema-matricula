@@ -24,6 +24,13 @@ mixin _$RegisterController on RegisterControllerStore, Store {
               () => super.showConfirmPasswordRegister,
               name: 'RegisterControllerStore.showConfirmPasswordRegister'))
           .value;
+  Computed<List<CourseModel>>? _$coursesComputed;
+
+  @override
+  List<CourseModel> get courses =>
+      (_$coursesComputed ??= Computed<List<CourseModel>>(() => super.courses,
+              name: 'RegisterControllerStore.courses'))
+          .value;
 
   late final _$_showPasswordRegisterAtom = Atom(
       name: 'RegisterControllerStore._showPasswordRegister', context: context);
@@ -58,6 +65,30 @@ mixin _$RegisterController on RegisterControllerStore, Store {
         .reportWrite(value, super._showConfirmPasswordRegister, () {
       super._showConfirmPasswordRegister = value;
     });
+  }
+
+  late final _$_coursesAtom =
+      Atom(name: 'RegisterControllerStore._courses', context: context);
+
+  @override
+  ObservableList<CourseModel> get _courses {
+    _$_coursesAtom.reportRead();
+    return super._courses;
+  }
+
+  @override
+  set _courses(ObservableList<CourseModel> value) {
+    _$_coursesAtom.reportWrite(value, super._courses, () {
+      super._courses = value;
+    });
+  }
+
+  late final _$getCoursesAsyncAction =
+      AsyncAction('RegisterControllerStore.getCourses', context: context);
+
+  @override
+  Future<void> getCourses() {
+    return _$getCoursesAsyncAction.run(() => super.getCourses());
   }
 
   late final _$registerBaseInfoAsyncAction =
@@ -97,7 +128,8 @@ mixin _$RegisterController on RegisterControllerStore, Store {
   String toString() {
     return '''
 showPasswordRegister: ${showPasswordRegister},
-showConfirmPasswordRegister: ${showConfirmPasswordRegister}
+showConfirmPasswordRegister: ${showConfirmPasswordRegister},
+courses: ${courses}
     ''';
   }
 }

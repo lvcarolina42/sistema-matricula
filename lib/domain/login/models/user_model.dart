@@ -1,4 +1,3 @@
-import 'package:sistema_matricula/domain/login/models/address_model.dart';
 
 enum UserType { 
   student("Aluno"),
@@ -13,6 +12,7 @@ enum UserType {
 class UserModel {
   final String cpf;
   final String name;
+  final int courseId;
   final UserType type;
   final String password;
 
@@ -20,6 +20,7 @@ class UserModel {
     required this.cpf,
     required this.type,
     required this.name,
+    this.courseId = -1,
     required this.password,
   });
 
@@ -29,6 +30,7 @@ class UserModel {
       cpf: map['cpf'] as String,
       name: map['name'] as String,
       password: map['password'] as String,
+      courseId: map['courseId'] as int,
     );
   }
 }

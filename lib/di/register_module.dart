@@ -7,6 +7,7 @@ class RegisterModule extends Bindings{
   void dependencies() {
     Get.lazyPut(() => RegisterController(
       registerUser: GetIt.I(),
+      getCoursesUseCase: GetIt.I(),
     ));
   }
 }

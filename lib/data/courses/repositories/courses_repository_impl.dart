@@ -15,6 +15,13 @@ class CoursesRepositoryImpl implements CoursesRepository {
   }
 
   @override
+  Future<CourseModel> getCourse(int id) async {
+    final List<Map<String, Object?>> courses = await _datasource.getCourse(id);
+
+    return CourseModel.fromMap(courses.first);
+  }
+
+  @override
   Future<int> registerCourse(CourseModel course) async {
     return await _datasource.registerCourse(course);
   }
