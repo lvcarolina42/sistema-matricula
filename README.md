@@ -2,6 +2,21 @@
 
 Lab 01 - Projeto de desenvolvimento de software
 
+## Integrantes do Grupo:
+- Gabriel Henrique Miranda Rodrigues
+- Livia Carolina
+- Jhonatan Gutemberg
+
+## Professor
+João Paulo Carneiro Aramuni
+
+## Proposta
+A proposta é desenvolver um sistema de matrículas informatizado para uma universidade, que gerencie informações sobre currículos semestrais, disciplinas, professores e alunos. O sistema permitirá que os alunos se matriculem em até 4 disciplinas obrigatórias e 2 optativas. 
+
+Disciplinas só serão ativadas se tiverem pelo menos 3 alunos matriculados no final do período de inscrições, e o limite máximo é de 60 alunos por disciplina. Quando esse limite é atingido, as inscrições para a disciplina são encerradas.
+
+O sistema de matrículas também interage com o sistema de cobranças, informando sobre as disciplinas inscritas para que as taxas correspondentes sejam cobradas.
+
 ## Diagrama de Classes
 
 ![ClassDiagram_RegistrationSystem](https://github.com/user-attachments/assets/70e6be79-5f77-4195-a0d0-8221f4555f0b)
