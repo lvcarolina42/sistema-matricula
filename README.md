@@ -2,7 +2,12 @@
 
 Lab 01 - Projeto de desenvolvimento de software
 
+## Diagrama de Classes
+
+![ClassDiagram_RegistrationSystem](https://github.com/user-attachments/assets/70e6be79-5f77-4195-a0d0-8221f4555f0b)
 ## Diagrama de caso de uso
+
+![diagrama-casos-de-uso_page-0001](https://github.com/user-attachments/assets/2322ea24-efc0-432f-a6c9-defd5ff0de27)
 
 ## Casos de uso
 
