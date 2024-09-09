@@ -32,27 +32,21 @@ class HomeModule extends Bindings{
       GetIt.I(),
       GetIt.I(),
       GetIt.I(),
-<<<<<<< Updated upstream
-=======
       GetIt.I(),
       GetIt.I(),
       GetIt.I(),
       GetIt.I(),
       GetIt.I(),
       GetIt.I(),
->>>>>>> Stashed changes
     ));
     Get.lazyPut(() => RegistrationController(
       GetIt.I(),
       GetIt.I(),
-<<<<<<< Updated upstream
-=======
       GetIt.I(),
       GetIt.I(),
       GetIt.I(),
       GetIt.I(),
       GetIt.I(),
->>>>>>> Stashed changes
     ));
   }
 }

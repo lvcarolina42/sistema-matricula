@@ -1,18 +1,7 @@
-<<<<<<< Updated upstream
-import 'package:flutter/material.dart';
-=======
->>>>>>> Stashed changes
 import 'package:mobx/mobx.dart';
 import 'package:get/get.dart';
 import 'package:sistema_matricula/domain/courses/models/course_model.dart';
 import 'package:sistema_matricula/domain/courses/use_cases/get_course_use_case.dart';
-<<<<<<< Updated upstream
-import 'package:sistema_matricula/domain/courses/use_cases/get_courses_use_case.dart';
-import 'package:sistema_matricula/domain/login/models/student_model.dart';
-import 'package:sistema_matricula/domain/login/models/user_model.dart';
-import 'package:sistema_matricula/domain/students/use_cases/get_students_by_subject_id.dart';
-import 'package:sistema_matricula/domain/subjects/models/subjects_model.dart';
-=======
 import 'package:sistema_matricula/domain/login/models/boleto_model.dart';
 import 'package:sistema_matricula/domain/login/models/user_model.dart';
 import 'package:sistema_matricula/domain/registration/models/registration_model.dart';
@@ -22,7 +11,6 @@ import 'package:sistema_matricula/domain/registration/use_cases/register_use_cas
 import 'package:sistema_matricula/domain/students/use_cases/get_boleto_use_case.dart';
 import 'package:sistema_matricula/domain/subjects/models/subjects_model.dart';
 import 'package:sistema_matricula/domain/subjects/use_cases/get_subject_by_id_use_case.dart';
->>>>>>> Stashed changes
 import 'package:sistema_matricula/domain/subjects/use_cases/get_subjects_use_case.dart';
 import 'package:sistema_matricula/presentation/home/controller/home_controller.dart';
 
@@ -31,14 +19,6 @@ part 'registration_controller.g.dart';
 class RegistrationController = RegistrationControllerStore with _$RegistrationController;
 
 abstract class RegistrationControllerStore extends DisposableInterface with Store {
-<<<<<<< Updated upstream
-  final GetCourseUseCase _getCourseUseCase;
-  final GetSubjectsUseCase _getSubjectsUseCase;
-
-  RegistrationControllerStore(
-    this._getCourseUseCase,
-    this._getSubjectsUseCase,
-=======
   final GetBoletoUseCase _boletoUseCase;
   final RegisterUseCase _registerUseCase;
   final GetCourseUseCase _getCourseUseCase;
@@ -55,7 +35,6 @@ abstract class RegistrationControllerStore extends DisposableInterface with Stor
     this._getSubjectByIdUseCase,
     this._getRegistrationsUseCase,
     this._deleteRegistrationUseCase,
->>>>>>> Stashed changes
   );
 
   CourseModel? _course;
@@ -66,20 +45,6 @@ abstract class RegistrationControllerStore extends DisposableInterface with Stor
   @computed
   List<SubjectModel> get subjects => _subjects;
 
-<<<<<<< Updated upstream
-  @observable
-  SubjectModel? selectedSubject;
-
-  @computed
-  SubjectModel? get selectedSubjectValue => selectedSubject;
-
-  UserModel? userModel;
-
-  @action
-  void setSelectedSubject(SubjectModel subject) {
-    selectedSubject = subject;
-  }
-=======
   UserModel? userModel;
 
   @observable
@@ -129,14 +94,11 @@ abstract class RegistrationControllerStore extends DisposableInterface with Stor
 
   @computed
   BoletoModel? get boleto => _boleto;
->>>>>>> Stashed changes
 
   set _setDataSubjects(List<SubjectModel> data) {
     _subjects.replaceRange(0, _subjects.length, data);
   }
 
-<<<<<<< Updated upstream
-=======
   set _setDataRegistredSubjects(List<SubjectModel> data) {
     _registratedSubjects.replaceRange(0, _registratedSubjects.length, data);
   }
@@ -186,15 +148,10 @@ abstract class RegistrationControllerStore extends DisposableInterface with Stor
     return false;
   }
 
->>>>>>> Stashed changes
   @override
   void onInit() async {
     final HomeController homeController = Get.find<HomeController>();
     userModel = homeController.user;
-<<<<<<< Updated upstream
-    await getCourse();
-    await getSubjects();
-=======
     await isRegistredCall();
     await getCourse();
     await getSubjects();
@@ -202,7 +159,6 @@ abstract class RegistrationControllerStore extends DisposableInterface with Stor
 
     final response = await _boletoUseCase(userModel!.id);
     _boleto = response;
->>>>>>> Stashed changes
     super.onInit();
   }
 
@@ -214,12 +170,6 @@ abstract class RegistrationControllerStore extends DisposableInterface with Stor
 
   @action
   Future<void> getSubjects() async {
-<<<<<<< Updated upstream
-    final response = await _getSubjectsUseCase(_course!.id).asObservable();
-      _setDataSubjects = response;
-  }
-
-=======
     final response = await _getSubjectsUseCase(_course!.id, userModel!.period).asObservable();
       _setDataSubjects = response;
   }
@@ -283,5 +233,4 @@ abstract class RegistrationControllerStore extends DisposableInterface with Stor
     Get.snackbar("Sucesso", "Disciplina deletada com sucesso");
   }
 
->>>>>>> Stashed changes
 }

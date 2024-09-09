@@ -114,10 +114,6 @@ class _ManageTeachersPageState extends State<ManageTeachersPage> {
                 },
                 child: Container(
                   height: 48.0,
-<<<<<<< Updated upstream
-                  width: 300.0,
-=======
->>>>>>> Stashed changes
                   decoration: BoxDecoration(
                     color: Colors.amber,
                     borderRadius: BorderRadius.circular(8.0),

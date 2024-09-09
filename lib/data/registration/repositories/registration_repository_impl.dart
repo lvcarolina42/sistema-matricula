@@ -1,13 +1,5 @@
-<<<<<<< Updated upstream
-import 'package:sistema_matricula/data/courses/datasource/courses_datasource.dart';
 import 'package:sistema_matricula/data/registration/datasource/registration_datasource.dart';
-import 'package:sistema_matricula/domain/courses/models/course_model.dart';
-import 'package:sistema_matricula/domain/courses/repositories/courses_repository.dart';
-=======
-import 'package:sistema_matricula/data/registration/datasource/registration_datasource.dart';
-import 'package:sistema_matricula/domain/login/models/student_model.dart';
 import 'package:sistema_matricula/domain/registration/models/registration_model.dart';
->>>>>>> Stashed changes
 import 'package:sistema_matricula/domain/registration/repositories/registration_repository.dart';
 import 'package:sistema_matricula/domain/subjects/models/subjects_model.dart';
 
@@ -22,8 +14,6 @@ class RegistrationRepositoryImpl implements RegistrationRepository {
 
     return subjects.map((subject) => SubjectModel.fromMap(subject)).toList();
   }
-<<<<<<< Updated upstream
-=======
 
   @override
   Future<void> insert(List<RegistrationModel> registrations) async {
@@ -61,5 +51,4 @@ class RegistrationRepositoryImpl implements RegistrationRepository {
     final subjects = await _datasource.getSubjectsByStudentId(id);
     return subjects.map((student) => student['subjectId'] as int).toList();
   }
->>>>>>> Stashed changes
 }

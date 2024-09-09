@@ -3,11 +3,8 @@ import 'package:sistema_matricula/data/courses/datasource/courses_datasource.dar
 import 'package:sistema_matricula/data/courses/repositories/courses_repository_impl.dart';
 import 'package:sistema_matricula/data/login/datasources/login_datasource.dart';
 import 'package:sistema_matricula/data/login/repositories/login_repository_impl.dart';
-<<<<<<< Updated upstream
-=======
 import 'package:sistema_matricula/data/registration/datasource/registration_datasource.dart';
 import 'package:sistema_matricula/data/registration/repositories/registration_repository_impl.dart';
->>>>>>> Stashed changes
 import 'package:sistema_matricula/data/students/datasource/students_datasource.dart';
 import 'package:sistema_matricula/data/students/repositories/students_repository_impl.dart';
 import 'package:sistema_matricula/data/subjects/datasource/subjects_datasource.dart';
@@ -21,11 +18,6 @@ import 'package:sistema_matricula/domain/courses/use_cases/register_course_use_c
 import 'package:sistema_matricula/domain/login/repositories/login_repository.dart';
 import 'package:sistema_matricula/domain/login/use_cases/do_login_use_case.dart';
 import 'package:sistema_matricula/domain/login/use_cases/register_user_use_case.dart';
-<<<<<<< Updated upstream
-import 'package:sistema_matricula/domain/students/repositories/students_repository.dart';
-import 'package:sistema_matricula/domain/students/use_cases/get_students_by_subject_id.dart';
-import 'package:sistema_matricula/domain/subjects/repositories/subjects_repository.dart';
-=======
 import 'package:sistema_matricula/domain/registration/repositories/registration_repository.dart';
 import 'package:sistema_matricula/domain/registration/use_cases/delete_registration_use_case.dart';
 import 'package:sistema_matricula/domain/registration/use_cases/get_registrations_use_case.dart';
@@ -40,7 +32,6 @@ import 'package:sistema_matricula/domain/students/use_cases/get_students_use_cas
 import 'package:sistema_matricula/domain/students/use_cases/insert_boleto_use_case.dart';
 import 'package:sistema_matricula/domain/subjects/repositories/subjects_repository.dart';
 import 'package:sistema_matricula/domain/subjects/use_cases/get_subject_by_id_use_case.dart';
->>>>>>> Stashed changes
 import 'package:sistema_matricula/domain/subjects/use_cases/get_subjects_use_case.dart';
 import 'package:sistema_matricula/domain/subjects/use_cases/register_subject_use_case.dart';
 import 'package:sistema_matricula/domain/teachers/repositories/teachers_repository.dart';
@@ -83,19 +74,9 @@ class DependencyInjector {
     _getIt.registerFactory<StudentsDatasource>(
       () => StudentsDatasource(),
     );
-<<<<<<< Updated upstream
-    // _getIt.registerFactory<LoginDatasource>(
-    //   () => LoginDatasource(
-    //     apiHandler: _getIt(),
-    //     sharedServices: _getIt(),
-    //     saveTokenUseCase: _getIt(),
-    //   ),
-    // );
-=======
     _getIt.registerFactory<RegistrationDataSource>(
       () => RegistrationDataSource(),
     );
->>>>>>> Stashed changes
   }
 
   void _registerRepository() {
@@ -123,13 +104,10 @@ class DependencyInjector {
     _getIt.registerFactory<StudentsRepository>(
       () => StudentsRepositoryImpl(
         _getIt(),
-<<<<<<< Updated upstream
-=======
       ),
     );
     _getIt.registerFactory<RegistrationRepository>(
       () => RegistrationRepositoryImpl(
->>>>>>> Stashed changes
         _getIt(),
       ),
     );
@@ -152,12 +130,9 @@ class DependencyInjector {
       () => GetSubjectsUseCase(GetIt.I())
     );
     _getIt.registerFactory(
-<<<<<<< Updated upstream
-=======
       () => GetSubjectByIdUseCase(GetIt.I())
     );
     _getIt.registerFactory(
->>>>>>> Stashed changes
       () => RegisterSubjectUseCase(GetIt.I())
     );
     _getIt.registerFactory(
@@ -170,15 +145,6 @@ class DependencyInjector {
       () => GetStudentsBySubjectId(GetIt.I())
     );
     _getIt.registerFactory(
-<<<<<<< Updated upstream
-      () => GetCourseUseCase(GetIt.I())
-    );
-    // _getIt.registerFactory(
-    //   () => GenerateV3TokenUseCase(
-    //     _getIt(),
-    //   ),
-    // );
-=======
       () => GetStudentsByCourseId(GetIt.I())
     );
     _getIt.registerFactory(
@@ -208,6 +174,5 @@ class DependencyInjector {
     _getIt.registerFactory(
       () => GetStudentsUseCase(GetIt.I())
     );
->>>>>>> Stashed changes
   }
 }

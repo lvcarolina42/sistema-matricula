@@ -79,11 +79,7 @@ abstract class ManageSubjectControllerStore extends DisposableInterface with Sto
   @action
   Future<void> getSubjects() async {
     if (selectedCourse != null) {
-<<<<<<< Updated upstream
-      final response = await _getSubjectsUseCase(selectedCourse!.id);
-=======
       final response = await _getSubjectsUseCase(selectedCourse!.id, null);
->>>>>>> Stashed changes
       _setDataSubjects = response;
     }
   }

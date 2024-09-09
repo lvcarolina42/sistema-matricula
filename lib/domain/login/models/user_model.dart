@@ -35,12 +35,8 @@ class UserModel {
       cpf: map['cpf'] as String,
       name: map['name'] as String,
       password: map['password'] as String,
-<<<<<<< Updated upstream
-      courseId: map['courseId'] as int,
-=======
       period: int.tryParse(map['period'].toString()) ?? -1,
       courseId: int.tryParse(map['courseId'].toString()) ?? -1,
->>>>>>> Stashed changes
     );
   }
 }

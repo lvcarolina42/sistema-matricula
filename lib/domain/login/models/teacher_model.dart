@@ -2,10 +2,6 @@ import 'package:sistema_matricula/domain/login/models/user_model.dart';
 import 'package:sistema_matricula/domain/subjects/models/subjects_model.dart';
 
 class TeacherModel extends UserModel {
-<<<<<<< Updated upstream
-  final int id;
-=======
->>>>>>> Stashed changes
   final SubjectModel subject;
 
   TeacherModel({

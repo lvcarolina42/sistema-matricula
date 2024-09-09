@@ -63,10 +63,7 @@ abstract class ManageTeachersControllerStore extends DisposableInterface with St
 
   @action
   void setSelectedCourse(CourseModel course) {
-<<<<<<< Updated upstream
-=======
     selectedSubject = null;
->>>>>>> Stashed changes
     selectedCourse = course;
     getSubjects();
   }
@@ -100,11 +97,7 @@ abstract class ManageTeachersControllerStore extends DisposableInterface with St
   @action
   Future<void> getSubjects() async {
     if (selectedCourse != null) {
-<<<<<<< Updated upstream
-      final response = await _getSubjectsUseCase(selectedCourse!.id).asObservable();
-=======
       final response = await _getSubjectsUseCase(selectedCourse!.id, null);
->>>>>>> Stashed changes
       _setDataSubjects = response;
     }
   }

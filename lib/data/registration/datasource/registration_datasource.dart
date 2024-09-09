@@ -6,8 +6,6 @@ class RegistrationDataSource {
   Future<List<Map<String, Object?>>> getSubjects(int courseId, int period) async {
     return _database.query("subject", where: "courseId = ? AND period = ?", whereArgs: [courseId, period]);
   }
-<<<<<<< Updated upstream
-=======
 
   Future<void> insert(Map<String, Object?> data) async {
     await _database.insert("registration", data);
@@ -32,5 +30,4 @@ class RegistrationDataSource {
   Future<List<Map<String, Object?>>> getSubjectsByStudentId(int id) async {
     return _database.query("registration", where: "studentId = ?", whereArgs: [id]);
   }
->>>>>>> Stashed changes
 }

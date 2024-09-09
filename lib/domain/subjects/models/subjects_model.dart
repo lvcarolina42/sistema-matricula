@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
-=======
 import 'package:sistema_matricula/domain/registration/models/registration_model.dart';
 
->>>>>>> Stashed changes
 enum SubjectType { 
   required(name: "Obrigatória", value: false),
   optional(name: "Optativa", value: true),;
@@ -58,8 +55,6 @@ class SubjectModel {
       isOptional: map['isOptional'] == "TRUE",
     );
   }
-<<<<<<< Updated upstream
-=======
 
   RegistrationModel toRegistrationModel(int studentId) {
     return RegistrationModel(
@@ -69,5 +64,4 @@ class SubjectModel {
       studentId: studentId,
     );
   }
->>>>>>> Stashed changes
 }

@@ -3,23 +3,16 @@ import 'package:mobx/mobx.dart';
 import 'package:get/get.dart';
 import 'package:sistema_matricula/domain/courses/models/course_model.dart';
 import 'package:sistema_matricula/domain/courses/use_cases/get_courses_use_case.dart';
-<<<<<<< Updated upstream
-import 'package:sistema_matricula/domain/login/models/student_model.dart';
-import 'package:sistema_matricula/domain/students/use_cases/get_students_by_subject_id.dart';
-import 'package:sistema_matricula/domain/subjects/models/subjects_model.dart';
-=======
 import 'package:sistema_matricula/domain/login/models/boleto_model.dart';
 import 'package:sistema_matricula/domain/login/models/student_model.dart';
 import 'package:sistema_matricula/domain/registration/use_cases/get_students_by_course_id.dart';
 import 'package:sistema_matricula/domain/registration/use_cases/get_students_by_subject_id.dart';
 import 'package:sistema_matricula/domain/registration/use_cases/get_subsjects_by_student_id_use_case.dart';
-import 'package:sistema_matricula/domain/students/use_cases/get_boleto_use_case.dart';
 import 'package:sistema_matricula/domain/students/use_cases/get_student_by_id.dart';
 import 'package:sistema_matricula/domain/students/use_cases/get_students_use_case.dart';
 import 'package:sistema_matricula/domain/students/use_cases/insert_boleto_use_case.dart';
 import 'package:sistema_matricula/domain/subjects/models/subjects_model.dart';
 import 'package:sistema_matricula/domain/subjects/use_cases/get_subject_by_id_use_case.dart';
->>>>>>> Stashed changes
 import 'package:sistema_matricula/domain/subjects/use_cases/get_subjects_use_case.dart';
 
 part 'manage_students_controller.g.dart';
@@ -28,15 +21,6 @@ class ManageStudentsController = ManageStudentsControllerStore with _$ManageStud
 
 abstract class ManageStudentsControllerStore extends DisposableInterface with Store {
   final GetCoursesUseCase _getCoursesUseCase;
-<<<<<<< Updated upstream
-  final GetSubjectsUseCase _getSubjectsUseCase;
-  final GetStudentsBySubjectId _getStudentsBySubjectId;
-
-  ManageStudentsControllerStore(
-    this._getCoursesUseCase,
-    this._getSubjectsUseCase,
-    this._getStudentsBySubjectId,
-=======
   final GetStudentByIdUseCase _getStudentById;
   final GetSubjectsUseCase _getSubjectsUseCase;
   final GetStudentsUseCase _getStudentsUseCase;
@@ -56,7 +40,6 @@ abstract class ManageStudentsControllerStore extends DisposableInterface with St
     this._getSubjectByIdUseCase,
     this._getStudentsBySubjectId,
     this._getSubsjectsByStudentIdUseCase,
->>>>>>> Stashed changes
   );
 
   @observable
@@ -89,8 +72,6 @@ abstract class ManageStudentsControllerStore extends DisposableInterface with St
   @computed
   List<StudentModel> get students => _students;
 
-<<<<<<< Updated upstream
-=======
   @observable
   StudentModel? selectedStudent;
 
@@ -115,18 +96,11 @@ abstract class ManageStudentsControllerStore extends DisposableInterface with St
   @computed
   List<SubjectModel> get subjectsBoleto => _subjectsBoleto;
 
->>>>>>> Stashed changes
   final TextEditingController teacherCpf = TextEditingController();
   final TextEditingController teacherName = TextEditingController();
   final TextEditingController teacherPassword = TextEditingController();
   final TextEditingController teacherPasswordConfirm = TextEditingController();
 
-<<<<<<< Updated upstream
-  @action
-  void setSelectedCourse(CourseModel course) {
-    selectedCourse = course;
-    getSubjects();
-=======
   @observable
   bool generatedBoleto = false;
 
@@ -145,7 +119,6 @@ abstract class ManageStudentsControllerStore extends DisposableInterface with St
     selectedCourse = course;
     getSubjects();
     getStudentsByCourse();
->>>>>>> Stashed changes
   }
 
   @action
@@ -154,8 +127,6 @@ abstract class ManageStudentsControllerStore extends DisposableInterface with St
     getStudents();
   }
 
-<<<<<<< Updated upstream
-=======
   @action
   void setSelectedStudentBoleto(StudentModel student) {
     selectedStudent = student;
@@ -168,22 +139,15 @@ abstract class ManageStudentsControllerStore extends DisposableInterface with St
     getSubjectsByStudent();
   }
 
->>>>>>> Stashed changes
   set _setDataSubjects(List<SubjectModel> data) {
     _subjects.replaceRange(0, _subjects.length, data);
   }
 
-<<<<<<< Updated upstream
-  set _setDataTeachers(List<StudentModel> data) {
-=======
   set _setDataStudents(List<StudentModel> data) {
->>>>>>> Stashed changes
     _students.replaceRange(0, _students.length, data);
     _students.sort((a, b) => a.name.compareTo(b.name));
   }
 
-<<<<<<< Updated upstream
-=======
   set _setDataStudentsBoleto(List<StudentModel> data) {
     _studentsBoleto.replaceRange(0, _studentsBoleto.length, data);
     _studentsBoleto.sort((a, b) => a.name.compareTo(b.name));
@@ -198,7 +162,6 @@ abstract class ManageStudentsControllerStore extends DisposableInterface with St
     _studentsTeacher.sort((a, b) => a.name.compareTo(b.name));
   }
 
->>>>>>> Stashed changes
   @override
   void onInit() {
     getCourses();
@@ -213,24 +176,13 @@ abstract class ManageStudentsControllerStore extends DisposableInterface with St
   @action
   Future<void> getSubjects() async {
     if (selectedCourse != null) {
-<<<<<<< Updated upstream
-      final response = await _getSubjectsUseCase(selectedCourse!.id).asObservable();
-=======
       final response = await _getSubjectsUseCase(selectedCourse!.id, null).asObservable();
->>>>>>> Stashed changes
       _setDataSubjects = response;
     }
   }
 
   @action
   Future<void> getStudents() async {
-<<<<<<< Updated upstream
-    if (selectedSubject != null) {
-      final response = await _getStudentsBySubjectId(selectedSubject!.id);
-      _setDataTeachers = response;
-    }
-  }
-=======
     final List<StudentModel> studentsResponse = [];
     if (selectedSubject != null) {
       final response = await _getStudentsBySubjectId(selectedSubject!.id);
@@ -303,5 +255,4 @@ abstract class ManageStudentsControllerStore extends DisposableInterface with St
     final response = await (_getStudentsUseCase(id));
     _setDataStudentsTeacher = response;
   }
->>>>>>> Stashed changes
 }

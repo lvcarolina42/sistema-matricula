@@ -6,12 +6,7 @@ class GetSubjectsUseCase {
 
   GetSubjectsUseCase(this._subjectsRepository);
 
-<<<<<<< Updated upstream
-  Future<List<SubjectModel>> call(int courseId) async {
-    return await _subjectsRepository.getSubjects(courseId);
-=======
   Future<List<SubjectModel>> call(int courseId, int? period) async {
     return await _subjectsRepository.getSubjects(courseId, period);
->>>>>>> Stashed changes
   }
 }

@@ -10,13 +10,6 @@ class SubjectsDatasource {
     return teste;
   }
 
-<<<<<<< Updated upstream
-  Future<List<Map<String, Object?>>> getSubjects(int courseId) async {
-    return _database.query("subject", where: "courseId = ?", whereArgs: [courseId]);
-  }
-
-  Future<List<Map<String, Object?>>> getSubject(int id) async {
-=======
   Future<List<Map<String, Object?>>> getSubjects(int courseId, int? period) async {
     if(period != null && period != -1) {
       return _database.query("subject", where: "courseId = ? AND periods = ?", whereArgs: [courseId, period]);
@@ -29,7 +22,6 @@ class SubjectsDatasource {
       return _database.query("subject", where: "id = ? AND periods = ?", whereArgs: [id, period]);
     }
 
->>>>>>> Stashed changes
     return _database.query("subject", where: "id = ?", whereArgs: [id]);
   }
 }

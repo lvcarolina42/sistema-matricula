@@ -44,14 +44,19 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
       (_$studentsComputed ??= Computed<List<StudentModel>>(() => super.students,
               name: 'ManageStudentsControllerStore.students'))
           .value;
-<<<<<<< Updated upstream
-=======
   Computed<List<StudentModel>>? _$studentsBoletoComputed;
 
   @override
   List<StudentModel> get studentsBoleto => (_$studentsBoletoComputed ??=
           Computed<List<StudentModel>>(() => super.studentsBoleto,
               name: 'ManageStudentsControllerStore.studentsBoleto'))
+      .value;
+  Computed<List<StudentModel>>? _$studentsTeacherComputed;
+
+  @override
+  List<StudentModel> get studentsTeacher => (_$studentsTeacherComputed ??=
+          Computed<List<StudentModel>>(() => super.studentsTeacher,
+              name: 'ManageStudentsControllerStore.studentsTeacher'))
       .value;
   Computed<StudentModel?>? _$selectedStudentValueComputed;
 
@@ -81,7 +86,6 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
           () => super.totalValueValue,
           name: 'ManageStudentsControllerStore.totalValueValue'))
       .value;
->>>>>>> Stashed changes
 
   late final _$_coursesAtom =
       Atom(name: 'ManageStudentsControllerStore._courses', context: context);
@@ -163,8 +167,6 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
     });
   }
 
-<<<<<<< Updated upstream
-=======
   late final _$selectedStudentAtom = Atom(
       name: 'ManageStudentsControllerStore.selectedStudent', context: context);
 
@@ -194,6 +196,22 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
   set _studentsBoleto(ObservableList<StudentModel> value) {
     _$_studentsBoletoAtom.reportWrite(value, super._studentsBoleto, () {
       super._studentsBoleto = value;
+    });
+  }
+
+  late final _$_studentsTeacherAtom = Atom(
+      name: 'ManageStudentsControllerStore._studentsTeacher', context: context);
+
+  @override
+  ObservableList<StudentModel> get _studentsTeacher {
+    _$_studentsTeacherAtom.reportRead();
+    return super._studentsTeacher;
+  }
+
+  @override
+  set _studentsTeacher(ObservableList<StudentModel> value) {
+    _$_studentsTeacherAtom.reportWrite(value, super._studentsTeacher, () {
+      super._studentsTeacher = value;
     });
   }
 
@@ -245,7 +263,6 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
     });
   }
 
->>>>>>> Stashed changes
   late final _$getCoursesAsyncAction =
       AsyncAction('ManageStudentsControllerStore.getCourses', context: context);
 
@@ -272,8 +289,6 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
     return _$getStudentsAsyncAction.run(() => super.getStudents());
   }
 
-<<<<<<< Updated upstream
-=======
   late final _$getStudentsByCourseAsyncAction = AsyncAction(
       'ManageStudentsControllerStore.getStudentsByCourse',
       context: context);
@@ -303,7 +318,16 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
     return _$insertBoletoAsyncAction.run(() => super.insertBoleto());
   }
 
->>>>>>> Stashed changes
+  late final _$getStudentTeacherAsyncAction = AsyncAction(
+      'ManageStudentsControllerStore.getStudentTeacher',
+      context: context);
+
+  @override
+  Future<void> getStudentTeacher(int id) {
+    return _$getStudentTeacherAsyncAction
+        .run(() => super.getStudentTeacher(id));
+  }
+
   late final _$ManageStudentsControllerStoreActionController =
       ActionController(name: 'ManageStudentsControllerStore', context: context);
 
@@ -330,8 +354,6 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
   }
 
   @override
-<<<<<<< Updated upstream
-=======
   void setSelectedStudentBoleto(StudentModel student) {
     final _$actionInfo =
         _$ManageStudentsControllerStoreActionController.startAction(
@@ -355,31 +377,24 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
   }
 
   @override
->>>>>>> Stashed changes
   String toString() {
     return '''
 selectedCourse: ${selectedCourse},
 selectedSubject: ${selectedSubject},
-<<<<<<< Updated upstream
-=======
 selectedStudent: ${selectedStudent},
 generatedBoleto: ${generatedBoleto},
 totalValue: ${totalValue},
->>>>>>> Stashed changes
 courses: ${courses},
 selectedCourseValue: ${selectedCourseValue},
 subjects: ${subjects},
 selectedSubjectValue: ${selectedSubjectValue},
-<<<<<<< Updated upstream
-students: ${students}
-=======
 students: ${students},
 studentsBoleto: ${studentsBoleto},
+studentsTeacher: ${studentsTeacher},
 selectedStudentValue: ${selectedStudentValue},
 subjectsBoleto: ${subjectsBoleto},
 generatedBoletoValue: ${generatedBoletoValue},
 totalValueValue: ${totalValueValue}
->>>>>>> Stashed changes
     ''';
   }
 }

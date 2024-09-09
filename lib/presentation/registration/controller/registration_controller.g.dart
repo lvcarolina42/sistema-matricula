@@ -16,15 +16,6 @@ mixin _$RegistrationController on RegistrationControllerStore, Store {
       (_$subjectsComputed ??= Computed<List<SubjectModel>>(() => super.subjects,
               name: 'RegistrationControllerStore.subjects'))
           .value;
-<<<<<<< Updated upstream
-  Computed<SubjectModel?>? _$selectedSubjectValueComputed;
-
-  @override
-  SubjectModel? get selectedSubjectValue => (_$selectedSubjectValueComputed ??=
-          Computed<SubjectModel?>(() => super.selectedSubjectValue,
-              name: 'RegistrationControllerStore.selectedSubjectValue'))
-      .value;
-=======
   Computed<List<SubjectModel>>? _$selectedRequiredSubjectsComputed;
 
   @override
@@ -77,7 +68,13 @@ mixin _$RegistrationController on RegistrationControllerStore, Store {
               () => super.registratedSubjects,
               name: 'RegistrationControllerStore.registratedSubjects'))
           .value;
->>>>>>> Stashed changes
+  Computed<BoletoModel?>? _$boletoComputed;
+
+  @override
+  BoletoModel? get boleto =>
+      (_$boletoComputed ??= Computed<BoletoModel?>(() => super.boleto,
+              name: 'RegistrationControllerStore.boleto'))
+          .value;
 
   late final _$_subjectsAtom =
       Atom(name: 'RegistrationControllerStore._subjects', context: context);
@@ -95,21 +92,6 @@ mixin _$RegistrationController on RegistrationControllerStore, Store {
     });
   }
 
-<<<<<<< Updated upstream
-  late final _$selectedSubjectAtom = Atom(
-      name: 'RegistrationControllerStore.selectedSubject', context: context);
-
-  @override
-  SubjectModel? get selectedSubject {
-    _$selectedSubjectAtom.reportRead();
-    return super.selectedSubject;
-  }
-
-  @override
-  set selectedSubject(SubjectModel? value) {
-    _$selectedSubjectAtom.reportWrite(value, super.selectedSubject, () {
-      super.selectedSubject = value;
-=======
   late final _$_selectedRequiredSubjectsAtom = Atom(
       name: 'RegistrationControllerStore._selectedRequiredSubjects',
       context: context);
@@ -229,7 +211,22 @@ mixin _$RegistrationController on RegistrationControllerStore, Store {
     _$_registratedSubjectsAtom.reportWrite(value, super._registratedSubjects,
         () {
       super._registratedSubjects = value;
->>>>>>> Stashed changes
+    });
+  }
+
+  late final _$_boletoAtom =
+      Atom(name: 'RegistrationControllerStore._boleto', context: context);
+
+  @override
+  BoletoModel? get _boleto {
+    _$_boletoAtom.reportRead();
+    return super._boleto;
+  }
+
+  @override
+  set _boleto(BoletoModel? value) {
+    _$_boletoAtom.reportWrite(value, super._boleto, () {
+      super._boleto = value;
     });
   }
 
@@ -249,8 +246,6 @@ mixin _$RegistrationController on RegistrationControllerStore, Store {
     return _$getSubjectsAsyncAction.run(() => super.getSubjects());
   }
 
-<<<<<<< Updated upstream
-=======
   late final _$registerAsyncAction =
       AsyncAction('RegistrationControllerStore.register', context: context);
 
@@ -268,18 +263,10 @@ mixin _$RegistrationController on RegistrationControllerStore, Store {
     return _$deleteRegisterAsyncAction.run(() => super.deleteRegister(subject));
   }
 
->>>>>>> Stashed changes
   late final _$RegistrationControllerStoreActionController =
       ActionController(name: 'RegistrationControllerStore', context: context);
 
   @override
-<<<<<<< Updated upstream
-  void setSelectedSubject(SubjectModel subject) {
-    final _$actionInfo = _$RegistrationControllerStoreActionController
-        .startAction(name: 'RegistrationControllerStore.setSelectedSubject');
-    try {
-      return super.setSelectedSubject(subject);
-=======
   void toggleSubjectSelected(SubjectModel subject) {
     final _$actionInfo = _$RegistrationControllerStoreActionController
         .startAction(name: 'RegistrationControllerStore.toggleSubjectSelected');
@@ -318,7 +305,6 @@ mixin _$RegistrationController on RegistrationControllerStore, Store {
         .startAction(name: 'RegistrationControllerStore.isRegistredSubject');
     try {
       return super.isRegistredSubject(subject);
->>>>>>> Stashed changes
     } finally {
       _$RegistrationControllerStoreActionController.endAction(_$actionInfo);
     }
@@ -327,11 +313,6 @@ mixin _$RegistrationController on RegistrationControllerStore, Store {
   @override
   String toString() {
     return '''
-<<<<<<< Updated upstream
-selectedSubject: ${selectedSubject},
-subjects: ${subjects},
-selectedSubjectValue: ${selectedSubjectValue}
-=======
 subjects: ${subjects},
 selectedRequiredSubjects: ${selectedRequiredSubjects},
 selectedOptionalSubjects: ${selectedOptionalSubjects},
@@ -339,8 +320,8 @@ isMaxRequiredSubjects: ${isMaxRequiredSubjects},
 isMaxOptionalSubjects: ${isMaxOptionalSubjects},
 isRegistred: ${isRegistred},
 registrations: ${registrations},
-registratedSubjects: ${registratedSubjects}
->>>>>>> Stashed changes
+registratedSubjects: ${registratedSubjects},
+boleto: ${boleto}
     ''';
   }
 }

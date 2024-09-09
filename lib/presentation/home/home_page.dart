@@ -4,12 +4,6 @@ import 'package:get/get.dart';
 import 'package:sistema_matricula/domain/login/models/user_model.dart';
 import 'package:sistema_matricula/presentation/home/controller/home_controller.dart';
 import 'package:sistema_matricula/presentation/manage_courses/menage_courses_page.dart';
-<<<<<<< Updated upstream
-import 'package:sistema_matricula/presentation/manage_students/manage_students_page.dart';
-import 'package:sistema_matricula/presentation/manage_subject/menage_subject_page.dart';
-import 'package:sistema_matricula/presentation/manage_teachers/manage_teachers_page.dart';
-import 'package:sistema_matricula/presentation/registration/registration_page.dart';
-=======
 import 'package:sistema_matricula/presentation/manage_students/create_boleto_page.dart';
 import 'package:sistema_matricula/presentation/manage_students/manage_students_page.dart';
 import 'package:sistema_matricula/presentation/manage_students/students_teacher_page.dart';
@@ -19,7 +13,6 @@ import 'package:sistema_matricula/presentation/registration/boleto_page.dart';
 import 'package:sistema_matricula/presentation/registration/cancel_page.dart';
 import 'package:sistema_matricula/presentation/registration/registration_page.dart';
 import 'package:sistema_matricula/presentation/registration/subjects_page.dart';
->>>>>>> Stashed changes
 import 'package:sistema_matricula/shared/app_routes/paths.dart';
 
 class HomePage extends StatefulWidget {
@@ -121,12 +114,7 @@ class _HomePageState extends State<HomePage> {
           const Tab(text: "Disciplinas"),
           const Tab(text: "Professores"),
           const Tab(text: "Alunos"),
-<<<<<<< Updated upstream
-          const Tab(text: "Relatórios"),
-          const Tab(text: "Matrículas"),
-=======
           const Tab(text: "Boletos"),
->>>>>>> Stashed changes
         ];
       case UserType.teacher:
         return [
@@ -142,15 +130,9 @@ class _HomePageState extends State<HomePage> {
       case UserType.student:
         return [
           const RegistrationPage(),
-<<<<<<< Updated upstream
-          _buildMenuOption("Cancelar Matrícula", "Paths.cancelEnrollment"),
-          _buildMenuOption("Ver Minhas Disciplinas", "Paths.myCourses"),
-          _buildMenuOption("Gerar Boleto de Pagamento", "Paths.generateInvoice"),
-=======
           const CancelPage(),
           const SubjectsPage(),
           const BoletoPage(),
->>>>>>> Stashed changes
         ];
       case UserType.secretary:
         return [
@@ -158,12 +140,7 @@ class _HomePageState extends State<HomePage> {
           const ManageSubjectPage(),
           const ManageTeachersPage(),
           const ManageStudentsPage(),
-<<<<<<< Updated upstream
-          _buildMenuOption("Relatórios", "Paths.generateReports"),
-          _buildMenuOption("Matrículas", "Paths.viewEnrollments"),
-=======
           const CreateBoleto(),
->>>>>>> Stashed changes
         ];
       case UserType.teacher:
         return [
