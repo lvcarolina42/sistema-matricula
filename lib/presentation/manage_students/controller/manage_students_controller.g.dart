@@ -44,6 +44,44 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
       (_$studentsComputed ??= Computed<List<StudentModel>>(() => super.students,
               name: 'ManageStudentsControllerStore.students'))
           .value;
+<<<<<<< Updated upstream
+=======
+  Computed<List<StudentModel>>? _$studentsBoletoComputed;
+
+  @override
+  List<StudentModel> get studentsBoleto => (_$studentsBoletoComputed ??=
+          Computed<List<StudentModel>>(() => super.studentsBoleto,
+              name: 'ManageStudentsControllerStore.studentsBoleto'))
+      .value;
+  Computed<StudentModel?>? _$selectedStudentValueComputed;
+
+  @override
+  StudentModel? get selectedStudentValue => (_$selectedStudentValueComputed ??=
+          Computed<StudentModel?>(() => super.selectedStudentValue,
+              name: 'ManageStudentsControllerStore.selectedStudentValue'))
+      .value;
+  Computed<List<SubjectModel>>? _$subjectsBoletoComputed;
+
+  @override
+  List<SubjectModel> get subjectsBoleto => (_$subjectsBoletoComputed ??=
+          Computed<List<SubjectModel>>(() => super.subjectsBoleto,
+              name: 'ManageStudentsControllerStore.subjectsBoleto'))
+      .value;
+  Computed<bool>? _$generatedBoletoValueComputed;
+
+  @override
+  bool get generatedBoletoValue => (_$generatedBoletoValueComputed ??=
+          Computed<bool>(() => super.generatedBoletoValue,
+              name: 'ManageStudentsControllerStore.generatedBoletoValue'))
+      .value;
+  Computed<double>? _$totalValueValueComputed;
+
+  @override
+  double get totalValueValue => (_$totalValueValueComputed ??= Computed<double>(
+          () => super.totalValueValue,
+          name: 'ManageStudentsControllerStore.totalValueValue'))
+      .value;
+>>>>>>> Stashed changes
 
   late final _$_coursesAtom =
       Atom(name: 'ManageStudentsControllerStore._courses', context: context);
@@ -125,6 +163,89 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
     });
   }
 
+<<<<<<< Updated upstream
+=======
+  late final _$selectedStudentAtom = Atom(
+      name: 'ManageStudentsControllerStore.selectedStudent', context: context);
+
+  @override
+  StudentModel? get selectedStudent {
+    _$selectedStudentAtom.reportRead();
+    return super.selectedStudent;
+  }
+
+  @override
+  set selectedStudent(StudentModel? value) {
+    _$selectedStudentAtom.reportWrite(value, super.selectedStudent, () {
+      super.selectedStudent = value;
+    });
+  }
+
+  late final _$_studentsBoletoAtom = Atom(
+      name: 'ManageStudentsControllerStore._studentsBoleto', context: context);
+
+  @override
+  ObservableList<StudentModel> get _studentsBoleto {
+    _$_studentsBoletoAtom.reportRead();
+    return super._studentsBoleto;
+  }
+
+  @override
+  set _studentsBoleto(ObservableList<StudentModel> value) {
+    _$_studentsBoletoAtom.reportWrite(value, super._studentsBoleto, () {
+      super._studentsBoleto = value;
+    });
+  }
+
+  late final _$_subjectsBoletoAtom = Atom(
+      name: 'ManageStudentsControllerStore._subjectsBoleto', context: context);
+
+  @override
+  ObservableList<SubjectModel> get _subjectsBoleto {
+    _$_subjectsBoletoAtom.reportRead();
+    return super._subjectsBoleto;
+  }
+
+  @override
+  set _subjectsBoleto(ObservableList<SubjectModel> value) {
+    _$_subjectsBoletoAtom.reportWrite(value, super._subjectsBoleto, () {
+      super._subjectsBoleto = value;
+    });
+  }
+
+  late final _$generatedBoletoAtom = Atom(
+      name: 'ManageStudentsControllerStore.generatedBoleto', context: context);
+
+  @override
+  bool get generatedBoleto {
+    _$generatedBoletoAtom.reportRead();
+    return super.generatedBoleto;
+  }
+
+  @override
+  set generatedBoleto(bool value) {
+    _$generatedBoletoAtom.reportWrite(value, super.generatedBoleto, () {
+      super.generatedBoleto = value;
+    });
+  }
+
+  late final _$totalValueAtom =
+      Atom(name: 'ManageStudentsControllerStore.totalValue', context: context);
+
+  @override
+  double get totalValue {
+    _$totalValueAtom.reportRead();
+    return super.totalValue;
+  }
+
+  @override
+  set totalValue(double value) {
+    _$totalValueAtom.reportWrite(value, super.totalValue, () {
+      super.totalValue = value;
+    });
+  }
+
+>>>>>>> Stashed changes
   late final _$getCoursesAsyncAction =
       AsyncAction('ManageStudentsControllerStore.getCourses', context: context);
 
@@ -151,6 +272,38 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
     return _$getStudentsAsyncAction.run(() => super.getStudents());
   }
 
+<<<<<<< Updated upstream
+=======
+  late final _$getStudentsByCourseAsyncAction = AsyncAction(
+      'ManageStudentsControllerStore.getStudentsByCourse',
+      context: context);
+
+  @override
+  Future<void> getStudentsByCourse() {
+    return _$getStudentsByCourseAsyncAction
+        .run(() => super.getStudentsByCourse());
+  }
+
+  late final _$getSubjectsByStudentAsyncAction = AsyncAction(
+      'ManageStudentsControllerStore.getSubjectsByStudent',
+      context: context);
+
+  @override
+  Future<void> getSubjectsByStudent() {
+    return _$getSubjectsByStudentAsyncAction
+        .run(() => super.getSubjectsByStudent());
+  }
+
+  late final _$insertBoletoAsyncAction = AsyncAction(
+      'ManageStudentsControllerStore.insertBoleto',
+      context: context);
+
+  @override
+  Future<void> insertBoleto() {
+    return _$insertBoletoAsyncAction.run(() => super.insertBoleto());
+  }
+
+>>>>>>> Stashed changes
   late final _$ManageStudentsControllerStoreActionController =
       ActionController(name: 'ManageStudentsControllerStore', context: context);
 
@@ -177,15 +330,56 @@ mixin _$ManageStudentsController on ManageStudentsControllerStore, Store {
   }
 
   @override
+<<<<<<< Updated upstream
+=======
+  void setSelectedStudentBoleto(StudentModel student) {
+    final _$actionInfo =
+        _$ManageStudentsControllerStoreActionController.startAction(
+            name: 'ManageStudentsControllerStore.setSelectedStudentBoleto');
+    try {
+      return super.setSelectedStudentBoleto(student);
+    } finally {
+      _$ManageStudentsControllerStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setSelectedStudent(StudentModel student) {
+    final _$actionInfo = _$ManageStudentsControllerStoreActionController
+        .startAction(name: 'ManageStudentsControllerStore.setSelectedStudent');
+    try {
+      return super.setSelectedStudent(student);
+    } finally {
+      _$ManageStudentsControllerStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+>>>>>>> Stashed changes
   String toString() {
     return '''
 selectedCourse: ${selectedCourse},
 selectedSubject: ${selectedSubject},
+<<<<<<< Updated upstream
+=======
+selectedStudent: ${selectedStudent},
+generatedBoleto: ${generatedBoleto},
+totalValue: ${totalValue},
+>>>>>>> Stashed changes
 courses: ${courses},
 selectedCourseValue: ${selectedCourseValue},
 subjects: ${subjects},
 selectedSubjectValue: ${selectedSubjectValue},
+<<<<<<< Updated upstream
 students: ${students}
+=======
+students: ${students},
+studentsBoleto: ${studentsBoleto},
+selectedStudentValue: ${selectedStudentValue},
+subjectsBoleto: ${subjectsBoleto},
+generatedBoletoValue: ${generatedBoletoValue},
+totalValueValue: ${totalValueValue}
+>>>>>>> Stashed changes
     ''';
   }
 }

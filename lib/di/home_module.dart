@@ -10,7 +10,9 @@ import 'package:sistema_matricula/presentation/registration/controller/registrat
 class HomeModule extends Bindings{
   @override
   void dependencies() {
-    Get.lazyPut(() => HomeController());
+    Get.lazyPut(() => HomeController(
+      GetIt.I(),
+    ));
     Get.lazyPut(() => ManageCoursesController(
       GetIt.I(),
       GetIt.I(),
@@ -30,10 +32,27 @@ class HomeModule extends Bindings{
       GetIt.I(),
       GetIt.I(),
       GetIt.I(),
+<<<<<<< Updated upstream
+=======
+      GetIt.I(),
+      GetIt.I(),
+      GetIt.I(),
+      GetIt.I(),
+      GetIt.I(),
+      GetIt.I(),
+>>>>>>> Stashed changes
     ));
     Get.lazyPut(() => RegistrationController(
       GetIt.I(),
       GetIt.I(),
+<<<<<<< Updated upstream
+=======
+      GetIt.I(),
+      GetIt.I(),
+      GetIt.I(),
+      GetIt.I(),
+      GetIt.I(),
+>>>>>>> Stashed changes
     ));
   }
 }

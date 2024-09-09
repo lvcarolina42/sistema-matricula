@@ -13,7 +13,11 @@ class TeachersRepositoryImpl implements TeachersRepository {
   @override
   Future<List<TeacherModel>> getTeachers(SubjectModel subject) async {
     final teachers = await _datasource.getTeachers(subject.id);
+<<<<<<< Updated upstream
     final subjects = await _subjectsDatasource.getSubjects(subject.courseId);
+=======
+    final subjects = await _subjectsDatasource.getSubjects(subject.courseId, null);
+>>>>>>> Stashed changes
     return teachers.map((teacher) {
       final subjectId = teacher['subjectId'];
       final subject = subjects.firstWhere((subject) => subject['id'] == subjectId);

@@ -8,8 +8,13 @@ class SubjectsRepositoryImpl implements SubjectsRepository {
   SubjectsRepositoryImpl(this._datasource);
   
   @override
+<<<<<<< Updated upstream
   Future<List<SubjectModel>> getSubjects(int courseId) async {
     final subjects = await _datasource.getSubjects(courseId);
+=======
+  Future<List<SubjectModel>> getSubjects(int courseId, int? period) async {
+    final subjects = await _datasource.getSubjects(courseId, period);
+>>>>>>> Stashed changes
     return subjects.map((subject) => SubjectModel.fromMap(subject)).toList();
   }
 
@@ -19,8 +24,13 @@ class SubjectsRepositoryImpl implements SubjectsRepository {
   }
 
   @override
+<<<<<<< Updated upstream
   Future<SubjectModel> getSubjectById(int id) async {
     final subjects = await _datasource.getSubject(id);
+=======
+  Future<SubjectModel> getSubjectById(int id, int? period) async {
+    final subjects = await _datasource.getSubject(id, period);
+>>>>>>> Stashed changes
     final subject = subjects.first;
     return SubjectModel.fromMap(subject);
   }

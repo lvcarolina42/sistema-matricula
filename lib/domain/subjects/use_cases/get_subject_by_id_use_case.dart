@@ -6,7 +6,12 @@ class GetSubjectByIdUseCase {
 
   GetSubjectByIdUseCase(this._subjectsRepository);
 
+<<<<<<< Updated upstream
   Future<SubjectModel> call(int id) {
     return _subjectsRepository.getSubjectById(id);
+=======
+  Future<SubjectModel> call(int id, int? period) {
+    return _subjectsRepository.getSubjectById(id, period);
+>>>>>>> Stashed changes
   }
 }

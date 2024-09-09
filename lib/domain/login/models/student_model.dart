@@ -2,16 +2,25 @@ import 'package:sistema_matricula/domain/login/models/user_model.dart';
 import 'package:sistema_matricula/domain/subjects/models/subjects_model.dart';
 
 class StudentModel extends UserModel {
+<<<<<<< Updated upstream
   final int id;
+=======
+>>>>>>> Stashed changes
   final int period;
   final int courseId;
   final String? courseName;
   final List<SubjectModel>? subjects;
 
   StudentModel({
+<<<<<<< Updated upstream
     this.subjects,
     this.courseName,
     required this.id,
+=======
+    super.id,
+    this.subjects,
+    this.courseName,
+>>>>>>> Stashed changes
     required super.cpf,
     required super.name,
     required this.period,

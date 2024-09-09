@@ -88,6 +88,23 @@ class Db {
           isOptional BOOLEAN,
           price DOUBLE
       );
+<<<<<<< Updated upstream
+=======
+
+      CREATE TABLE IF NOT EXISTS registration (
+          id INTEGER PRIMARY KEY,
+          studentId INTEGER,
+          subjectId INTEGER,
+          courseId INTEGER
+      );
+
+      CREATE TABLE IF NOT EXISTS boleto (
+          id INTEGER PRIMARY KEY,
+          price DOUBLE,
+          studentId INTEGER
+      );
+      
+>>>>>>> Stashed changes
       ''');
     } catch (e) {
       print("Error creating tables: $e");
